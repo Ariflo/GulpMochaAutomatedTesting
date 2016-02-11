@@ -1,3 +1,13 @@
+
+##How to get a Life in 3 Easy steps!
+Do you feel like every development project you undertake is another chunk of your life being sucked into the black hole that is your laptop? 
+
+Do you suffer from PTDD (Post-Traumatic Deployment Disorder) and just can't seem to walk away from the laptop, thinking about that inevitable post-deployment crash to come. 
+
+Well then I've got 7 words for you: 
+
+![calm](http://thetaoofbizdev.com/wp-content/uploads/2014/06/get-a-life.png)
+
 ## Automated Testing with Gulp-Mocha
 
 This repository will outline the steps necessary to set-up an automated Gulp-Mocha testing suite for your SEAN (SQL with Knex, Express, Angular, Node) web app. 
@@ -33,17 +43,18 @@ $tree
 
 ```
 
-Type `yo galvanize-fullstack` into the commandline to get a basic skelton like the above file structure. [See the npm details here](https://www.npmjs.com/package/generator-galvanize-fullstack)
+If not, feel free to type `yo galvanize-fullstack` into your terminal's command line to get a basic SEAN app skeleton. [See the npm details here](https://www.npmjs.com/package/generator-galvanize-fullstack)
 
 ##Step 1: Install the Gulp Test Suite
 
-You will need to enter the following into your terminal command line
+You will first need to enter the following into your terminal command line
 
 ```
 $ npm i  gulp mocha chai gulp-mocha gulp-util supertest supertest-session -g
 $ npm i  gulp mocha chai gulp-mocha gulp-util supertest supertest-session --save
 ```
-For those inquiring: 
+
+For inquisitive among us: 
 
 - [`Gulp`](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md) is a build system that will assist in running the test code. I like to think of it as a task manager that can watch for file changes and trigger tests automatically.
 
@@ -51,7 +62,7 @@ For those inquiring:
 
 - [`Chai`](http://chaijs.com/) is a BDD / TDD assertion library for node and the browser that, as noted on the site, can be delightfully paired with any javascript testing framework. Not sure how something can be 'delightfully paired' but it certainly helps to have chai around when building your actual tests.
 
-- [`Supertest`](https://www.npmjs.com/package/supertest) The motivation with this module is to provide a high-level of abstraction for testing HTTP (ie.routes), while still allowing you to drop down to the lower-level API provided by super-agent. In layman terms, "no crossing swords" :), or ports in this case. You can test your express app's routes and not have to worry about whether the app is running or not. It truly is super!    
+- [`Supertest`](https://www.npmjs.com/package/supertest) is a  module that can provide a high-level of abstraction for testing HTTP (ie.routes), while still allowing you to drop down to the lower-level API provided by super-agent. In layman terms, no crossing ports! You can test your express app's routes and not have to worry about whether the app is running or not. It truly is super!    
 
 
 ##Step 2: Create and Build your gulpfile.js file
@@ -71,7 +82,9 @@ var util = require('gulp-util');
 
 ```
 
-Alright, now its task time, like I mentioned before [Gulp](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md) is at its heart a task runner that wants to excute a list of commands you give it to do. 
+###<center> Its task time! </center>
+
+Like I mentioned before [`gulp`](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md) is quintessentially a task runner that wants to excute a list of commands you've provided for it to do. 
 
 With this in mind, lets add a couple tasks to our gulpfile:
 
@@ -94,21 +107,21 @@ gulp.task('watch-test', function () {
 gulp.task('default', ['test', 'watch-test'], function(){});
 ```
 
-Great! Now when the `$ gulp` command is entered into your terminal, it will search for the ‘default’ task and execute whatever task is provided, in this case we send it to run our two tasks *test* and *watch-test*.
+Great! Now when you run the `$ gulp` command in your terminal, it will excecute the ‘default’ tasks provided, which in this case is to simultaneously run our two other tasks *test* and *watch-test*.
 
 - **'test'** has the duty of actually running our mocha tests. Using *'gulp.src'* it will search through our test folder and run any files inside. It'll run them under the standard 'spec' hierarchical view and log any errors.   
 
 
-- **'watch-test'** has the duty of checking for changes to any of the specifed folders or files in the app. As soon as 'gulp.watch' sees a change to any of the files it will automatically run the 'test' task and report the results.
+- **'watch-test'** has the duty of checking for changes to any of the specifed folders or files in the app. As soon as 'gulp.watch' sees a change to any of the files it will automatically run the 'test' task and report the results in the terminal.
 
-Check out the [npm page](https://www.npmjs.com/package/gulp-mocha) for all the cool stuff you can do with gulp-mocha. 
+<center> Check out the [ gulp-mocha npm page](https://www.npmjs.com/package/gulp-mocha) to learn about more of the cool stuff you can do. </center>
 
-##Step 3: Create a Test folder and and build your Test file
+##Step 3: Create a Test Folder and and Build your Test File
 
-Alright, now that you've got the tasker ready to run tasks you'll need to set-up tasks for it to run (trying saying that 3x fast)
+Alright, now that you've got the tasker ready to run tasks you'll need to set-up tasks for it to run (trying saying THAT 3x fast!)
 
 
-Lets create our test folder where we'll keep all of your test.js files
+Lets create our test folder where we'll keep all of our test.js files
 
 ```
 $ mkdir test
@@ -125,7 +138,12 @@ process.env.PORT = 5000;
 process.env.NODE_ENV = 'test';
 ```
 
-Make sure to set the port to something other than whats been set for development in app.js. This way you can gurantee the development enviorment won't compete for ports being used in the testing enviorment.
+Make sure to set the port to something other than whats been set for development in app.js.
+
+I cannot re-emphasize this enough: 
+**<center>Make sure to set the port to something other than whats been set for development in app.js!!!</center>**
+
+This way you can gurantee the development enviorment won't compete for ports being used in the testing enviorment.
 
 Next, you will need to bring in a few requirements:
 
@@ -135,7 +153,7 @@ var request = require('supertest')
 	, expect = require('chai').expect
 	, session = require('supertest-session');
 ```
-As I mentioned before, [`Supertest`](https://www.npmjs.com/package/supertest) is our main testing framework. In order to properly send routes to your sever you will need to also require the server in the test file (in this case app.js).[`Chai`](http://chaijs.com/)gives us the ability to use 'expect' (see my sample code below) and finally [`Supertest`](https://www.npmjs.com/package/supertest) provides a handy Cookie-based session persistence tool called `supertest-session` to envolpe and use our app (ie. server). 
+As I mentioned before, [`supertest`](https://www.npmjs.com/package/supertest) is our main testing framework. In order to properly send routes to your sever you will need to also require the server in the test file (in this case app.js).[`Chai`](http://chaijs.com/)gives us the ability to use 'expect' (see my sample code below) and finally [`Supertest`](https://www.npmjs.com/package/supertest) provides a handy Cookie-based session persistence tool called `supertest-session` to envolpe and use our app (ie. server). 
 
 It isn't particularly mandatory, but when starting out I would set-up a beforeEach where you assign a variable to the session. It cleans up the code a little and makes it easier to understand what your test is doing.  
 
@@ -145,7 +163,7 @@ beforeEach(function () {
 })
 ```
 
-Alright, now you are offcially ready to build some tests! 
+**<center>Congrats! You are offcially ready to build your tests! </center>**
 
 In the sample that I've attached to this repository I test to see that my app is able to load the dashboard (homepage) successfully:
 
@@ -159,7 +177,7 @@ describe('this test', function(){
 			if(err){
 				return done(err);
 			}
-			expect(res.text).to.contain('Gal');
+			expect(res.text).to.contain('Galvanize');
 			done();
 		})
 
@@ -167,6 +185,20 @@ describe('this test', function(){
 
 })
 ```
+
+##Welcome to the Wonderful World of Test Driven Developement (TDD)
+
+Now that everything is in place, feel free to run your development enivorment sever using `nodemon` in one terminal window. While on another window simply type `gulp` into your command line and hit enter. 
+
+<center> You should now feel the weight of the world lift from your shoulders. </center>
+
+![over](https://s-media-cache-ak0.pinimg.com/564x/9b/56/80/9b56805ffca1fa1a144ed1acc8dbb84d.jpg)
+
+
+When you return to your code, you can make any and all necessary changes, save your code, and simply look at your terminal window and hope to see those magnificant beautiful green checkmarks assuring you that it's ok to walk away from the laptop. You're free!    
+
+
+
 
 
 
