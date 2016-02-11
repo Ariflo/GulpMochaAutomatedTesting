@@ -51,16 +51,8 @@ For those inquiring:
 
 - [`Supertest`](https://www.npmjs.com/package/supertest) The motivation with this module is to provide a high-level of abstraction for testing HTTP (ie.routes), while still allowing you to drop down to the lower-level API provided by super-agent. In layman terms, "no crossing swords" :), or ports in this case. You can test your express app's routes and not have to worry about whether the app is running or not. It truly is super!    
 
-##Step 2: Create a Test folder and Test file
 
-This folder will hold all of your test.js files
-
-```
-$ mkdir test
-$ cd test 
-$ touch firstTest.js 
-```
-##Step 3: Create and build your gulpfile.js file
+##Step 2: Create and Build your gulpfile.js file
 
 You'll want to create a gulpfile.js outside of the test folder if you don't have it already
  
@@ -93,23 +85,55 @@ gulp.task('test', function () {
 });
  
 gulp.task('watch-test', function () {
-    gulp.watch(['views/**', 'public/**', 'app.js', 'framework/**', 'test/**'], ['test']);
+    gulp.watch(['views/**', 'public/**', 'app.js', 'routes/**', 'test/**'], ['test']);
 });
 
 // *** default task *** //
 gulp.task('default', ['test', 'watch-test'], function(){});
 ```
 
-Great! Now when the ‘gulp’ command is entered into your terminal, it will search for the ‘default’ task and execute whatever task is provided, in this case we send it to run our other tasks (*test* and *watch-test*).
+Great! Now when the `$ gulp` command is entered into your terminal, it will search for the ‘default’ task and execute whatever task is provided, in this case we send it to run our two tasks *test* and *watch-test*.
 
-'test' has the duty of running our mocha tests
+- **'test'** has the duty of actually running our mocha tests. Using *'gulp.src'* it will search through our test folder and run any files inside. It'll run them under the standard 'spec' hierarchical view and log any errors.   
+
+
+- **'watch-test'** has the duty of checking for changes to any of the specifed folders or files in the app. As soon as 'gulp.watch' sees a change to any of the files it will automatically run the 'test' task and report the results.
+
+Check out the [npm page](https://www.npmjs.com/package/gulp-mocha) for all the cool stuff you can do with gulp-mocha. 
+
+##Step 3: Create a Test folder and and build your Test file
+
+Alright, now that you've got the tasker ready to run tasks you'll need to set-up tasks for it to run (trying saying that 3x fast)
+
+
+Lets create our test folder where we'll keep all of your test.js files
+
+```
+$ mkdir test
+$ cd test 
+```
+
+Now, while inside the test folder in your terminal create a test file `$ touch firstTest.js` 
+
+At the very top of your test file you should establish the port and enviorment
+
+```
+process.env.PORT = 5000;
+process.env.NODE_ENV = 'test';
+```
+
+Make sure to set the port to something other than whats been set for development in app.js. This way your development enviorment won't compete for ports being used by the testing enviorment.
+
+
+
+
+
+
+
 
  
 
 
-
-‘gulp test’ on the command line in order to achieve the same result that we did with mocha. Second task that we have defined, with the name ‘watch-test’ watches out for the folders that I have specified here, views, public and test for file changes, if it finds any, it automatically run the ‘test’ task and report the test results. I have also included app.js which is my main Node.js file, and framework folder, where I like to put all my Node.js code. Lets go ahead execute the following:
-The default task at the end there will be what Gulp immediately l
 
 
 
