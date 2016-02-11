@@ -19,7 +19,7 @@ describe('the dashboard', function(){
 			if(err){
 				return done(err);
 			}
-			expect(res.text).to.contain('booh');
+			expect(res.text).to.contain('Gal');
 			done();
 		})
 

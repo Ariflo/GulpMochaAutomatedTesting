@@ -40,8 +40,8 @@ Type `yo galvanize-fullstack` into the commandline to get a basic skelton like t
 You will need to enter the following into your terminal command line
 
 ```
-$ npm i  gulp mocha chai gulp-mocha gulp-util supertest -g
-$ npm i  gulp mocha chai gulp-mocha gulp-util supertest --save
+$ npm i  gulp mocha chai gulp-mocha gulp-util supertest supertest-session -g
+$ npm i  gulp mocha chai gulp-mocha gulp-util supertest supertest-session --save
 ```
 For those inquiring: 
 
