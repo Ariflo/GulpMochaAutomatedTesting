@@ -191,7 +191,7 @@ describe('this test', function(){
 
 Now that everything is in place, feel free to run your development enivorment sever using `nodemon` in one terminal window. While on another window simply type `gulp` into your command line and hit enter. 
 
-You should now feel the weight of the world lift from your shoulders.
+You should now feel the weight of the world lift off of your shoulders.
 
 ![over](https://s-media-cache-ak0.pinimg.com/564x/9b/56/80/9b56805ffca1fa1a144ed1acc8dbb84d.jpg)
 
