@@ -11,7 +11,7 @@ Do you suffer from PTDD, *Post-Traumatic Deployment Disorder*, and just can't se
 
 Never fear, automated TDD is here!
 
-This repository will outline the steps necessary to set-up an automated Gulp-Mocha testing suite for your SEAN (SQL with Knex, Express, Angular, Node) web app. 
+This repository will outline the steps necessary to set-up an automated Gulp-Mocha testing suite for your SEAN (PostgreSQL, Express, Angular, Node) web app. 
 
 ###File Structure
 This demo assumes your SEAN app follows the standard MVC file structure:
@@ -141,12 +141,13 @@ process.env.NODE_ENV = 'test';
 
 Make sure to set the port to something other than what's been set for development in your app.js (server) file.
 
-I cannot re-emphasize this enough: 
-**Make sure to set the port to something other than what's been set up for development!!!**
+I cannot re-emphasize this enough  <br>
+
+<u>**Make sure to set the port to something other than what's been set up for development!!!**</u>
 
 This way you can gurantee the development and testing enviorments won't compete for ports.
 
-You will also need to make sure you have a 'test' enviorment set-up in your knexfile.js
+******You will also need to make sure you have a 'test' enviorment set-up in your database file (ie. knexfile.js)******
 
 Next, you will need to bring in a few more requirements:
 
@@ -189,7 +190,7 @@ describe('this test', function(){
 })
 ```
 
-##Welcome to the Wonderful World of Test Driven Development (TDD)
+##Welcome to the Wonderful World of Test Driven Development
 
 Now that everything is in place, feel free to run your development enivorment sever using `nodemon` in one terminal window. While on another window simply type `gulp` into your command line and hit enter. 
 
