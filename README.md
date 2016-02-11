@@ -1,14 +1,15 @@
 
-##<center>How to get a Life in 3 Easy steps!</center>
-<center>Do you feel like every development project you undertake is another chunk of your life being sucked into the black hole that is your laptop? 
+##How to get a Life in 3 Easy steps!
 
-Do you suffer from PTDD (Post-Traumatic Deployment Disorder) and just can't seem to walk away from a computer screen, thinking about that inevitable post-deployment crash to come. 
+Do you feel like every development project you undertake is another chunk of your life being sucked into the black hole that is your laptop? 
 
-Well then I've got 4 words for you: </center>
+Do you suffer from PTDD, *Post-Traumatic Deployment Disorder*, and just can't seem to walk away from a computer screen, thinking about that inevitable post-deployment crash to come. 
 
-<center>![calm](http://sd.keepcalm-o-matic.co.uk/i/keep-calm-and-tdd-1.png)</center>
+![calm](http://sd.keepcalm-o-matic.co.uk/i/keep-calm-and-tdd-1.png)
 
 ## Automated Testing with Gulp-Mocha
+
+Never fear, automated TDD is here!
 
 This repository will outline the steps necessary to set-up an automated Gulp-Mocha testing suite for your SEAN (SQL with Knex, Express, Angular, Node) web app. 
 
@@ -67,7 +68,7 @@ For the inquisitive among us:
 
 ##Step 2: Create and Build your gulpfile.js
 
-You'll want to create a gulpfile.js file outside of the test folder if you don't have it already
+You'll want to create a gulpfile.js if you don't have it already
  
 ```
 $ touch gulpfile.js
@@ -82,7 +83,7 @@ var util = require('gulp-util');
 
 ```
 
-###<center> Its task time! </center>
+### Its tasking time! 
 
 Like I mentioned before [`gulp`](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md) is essentially a task runner that wants to excute a list of commands you've provided for it to do. 
 
@@ -114,7 +115,7 @@ Great! Now when you run `$ gulp`, it will excecute the ‘default’ tasks provi
 
 - **'watch-test'** has the duty of checking for changes to any of the specifed folders or files in the app. As soon as 'gulp.watch' sees a change to any of the files it will automatically run the 'test' task and report the results in the terminal.
 
-<center> Check out the [ gulp-mocha npm page](https://www.npmjs.com/package/gulp-mocha) to learn more about the cool stuff you can do. </center>
+Check out the [gulp-mocha npm page](https://www.npmjs.com/package/gulp-mocha) to learn more about the cool stuff you can do. 
 
 ##Step 3: Create a Test Folder and and Build your Test File
 
@@ -141,11 +142,11 @@ process.env.NODE_ENV = 'test';
 Make sure to set the port to something other than what's been set for development in your app.js (server) file.
 
 I cannot re-emphasize this enough: 
-**<center>Make sure to set the port to something other than what's been set up for development!!!</center>**
+**Make sure to set the port to something other than what's been set up for development!!!**
 
 This way you can gurantee the development and testing enviorments won't compete for ports.
 
-Next, you will need to bring in a few requirements:
+Next, you will need to bring in a few more requirements:
 
 ```
 var request = require('supertest')
@@ -163,7 +164,7 @@ beforeEach(function () {
 })
 ```
 
-**<center>Congrats! You are offcially ready to build your tests! </center>**
+**Congrats! You are offcially ready to build your tests!**
 
 In the sample that I've attached to this repository I test to see that my app is able to load the dashboard (homepage) successfully:
 
@@ -190,15 +191,15 @@ describe('this test', function(){
 
 Now that everything is in place, feel free to run your development enivorment sever using `nodemon` in one terminal window. While on another window simply type `gulp` into your command line and hit enter. 
 
-<center> You should now feel the weight of the world lift from your shoulders. </center>
+You should now feel the weight of the world lift from your shoulders.
 
-<center>![over](https://s-media-cache-ak0.pinimg.com/564x/9b/56/80/9b56805ffca1fa1a144ed1acc8dbb84d.jpg)</center>
+![over](https://s-media-cache-ak0.pinimg.com/564x/9b/56/80/9b56805ffca1fa1a144ed1acc8dbb84d.jpg)
 
 
 When you return to your code, you can make any and all necessary changes, save your code, and simply look at your terminal window and hope to see those magnificant beautiful green checkmarks assuring you that it's ok to walk away from the laptop. You're free!  
 
-<center>[More on writing test in mocha](https://semaphoreci.com/community/tutorials/getting-started-with-node-js-and-mocha)  
-[More on writing test in jasmine](http://jasmine.github.io/2.0/introduction.html)</center>
+[More on writing test in mocha](https://semaphoreci.com/community/tutorials/getting-started-with-node-js-and-mocha)  
+[More on writing test in jasmine](http://jasmine.github.io/2.0/introduction.html)
 
 
 
