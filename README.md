@@ -1,12 +1,12 @@
 
 ##<center>How to get a Life in 3 Easy steps!</center>
-Do you feel like every development project you undertake is another chunk of your life being sucked into the black hole that is your laptop? 
+<center>Do you feel like every development project you undertake is another chunk of your life being sucked into the black hole that is your laptop? 
 
 Do you suffer from PTDD (Post-Traumatic Deployment Disorder) and just can't seem to walk away from a computer screen, thinking about that inevitable post-deployment crash to come. 
 
-Well then I've got 7 words for you: 
+Well then I've got 4 words for you: </center>
 
-<center>![calm](http://thetaoofbizdev.com/wp-content/uploads/2014/06/get-a-life.png)</center>
+<center>![calm](http://sd.keepcalm-o-matic.co.uk/i/keep-calm-and-tdd-1.png)</center>
 
 ## Automated Testing with Gulp-Mocha
 
@@ -58,14 +58,14 @@ For the inquisitive among us:
 
 - [`Gulp`](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md) is a build system that will assist in running the test code. I like to think of it as a task manager that can watch for file changes and trigger tests automatically.
 
-- [`Mocha`](https://mochajs.org/)is a test framework that will provide the instruments needed to run the actual test. A popular alternative to Mocha is Jasmine. You can learn more about the diffrence between two [here](http://thejsguy.com/2015/01/12/jasmine-vs-mocha-chai-and-sinon.html).
+- [`Mocha`](https://mochajs.org/)is a test framework that will provide the instruments needed to run the actual test. A popular alternative to Mocha is Jasmine. You can learn more about the diffrence between the two [here](http://thejsguy.com/2015/01/12/jasmine-vs-mocha-chai-and-sinon.html).
 
 - [`Chai`](http://chaijs.com/) is a BDD / TDD assertion library for node and the browser that, as noted on the site, can be delightfully paired with any javascript testing framework. Not sure how something can be 'delightfully paired' but it certainly helps to have chai around when building your actual tests.
 
 - [`Supertest`](https://www.npmjs.com/package/supertest) is a  module that can provide a high-level of abstraction for testing HTTP (ie.routes), while still allowing you to drop down to the lower-level API provided by super-agent. In layman terms, no crossing ports! You can test your express app's routes and not have to worry about whether the app is running or not. It truly is super!    
 
 
-##Step 2: Create and Build your gulpfile.js file
+##Step 2: Create and Build your gulpfile.js
 
 You'll want to create a gulpfile.js file outside of the test folder if you don't have it already
  
@@ -141,7 +141,7 @@ process.env.NODE_ENV = 'test';
 Make sure to set the port to something other than what's been set for development in your app.js (server) file.
 
 I cannot re-emphasize this enough: 
-**<center>Make sure to set the port to something other than what's been set for development!!!</center>**
+**<center>Make sure to set the port to something other than what's been set up for development!!!</center>**
 
 This way you can gurantee the development and testing enviorments won't compete for ports.
 
@@ -197,10 +197,8 @@ Now that everything is in place, feel free to run your development enivorment se
 
 When you return to your code, you can make any and all necessary changes, save your code, and simply look at your terminal window and hope to see those magnificant beautiful green checkmarks assuring you that it's ok to walk away from the laptop. You're free!  
 
-<center>
-[More on writing test in mocha](https://semaphoreci.com/community/tutorials/getting-started-with-node-js-and-mocha)  
-[More on writing test in jasmine](http://jasmine.github.io/2.0/introduction.html)
-</center>
+<center>[More on writing test in mocha](https://semaphoreci.com/community/tutorials/getting-started-with-node-js-and-mocha)  
+[More on writing test in jasmine](http://jasmine.github.io/2.0/introduction.html)</center>
 
 
 
