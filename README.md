@@ -47,7 +47,9 @@ For those inquiring:
 
 - [`Gulp`](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md) is a build system that will assist in running the test code. I like to think of it as a task manager that can watch for file changes and trigger tests automatically.
 
-- [`Mocha`](https://mochajs.org/)is a test framework that will provide the instruments needed to run the actual test. Popular alternative to Mocha is Jasmine. You can learn more about the diffrence between two [here](http://thejsguy.com/2015/01/12/jasmine-vs-mocha-chai-and-sinon.html)
+- [`Mocha`](https://mochajs.org/)is a test framework that will provide the instruments needed to run the actual test. Popular alternative to Mocha is Jasmine. You can learn more about the diffrence between two [here](http://thejsguy.com/2015/01/12/jasmine-vs-mocha-chai-and-sinon.html).
+
+- [`Chai`](http://chaijs.com/) is a BDD / TDD assertion library for node and the browser that, as noted on the site, can be delightfully paired with any javascript testing framework. Not sure how something can be 'delightfully paired' but it certainly helps to have chai around when building your actual tests.
 
 - [`Supertest`](https://www.npmjs.com/package/supertest) The motivation with this module is to provide a high-level of abstraction for testing HTTP (ie.routes), while still allowing you to drop down to the lower-level API provided by super-agent. In layman terms, "no crossing swords" :), or ports in this case. You can test your express app's routes and not have to worry about whether the app is running or not. It truly is super!    
 
@@ -113,7 +115,8 @@ $ mkdir test
 $ cd test 
 ```
 
-Now, while inside the test folder in your terminal create a test file `$ touch firstTest.js` 
+Now, while inside the test folder in your terminal create a test file: 
+`$ touch firstTest.js` 
 
 At the very top of your test file you should establish the port and enviorment
 
@@ -122,8 +125,48 @@ process.env.PORT = 5000;
 process.env.NODE_ENV = 'test';
 ```
 
-Make sure to set the port to something other than whats been set for development in app.js. This way your development enviorment won't compete for ports being used by the testing enviorment.
+Make sure to set the port to something other than whats been set for development in app.js. This way you can gurantee the development enviorment won't compete for ports being used in the testing enviorment.
 
+Next, you will need to bring in a few requirements:
+
+```
+var request = require('supertest')
+	, app = require('../app')
+	, expect = require('chai').expect
+	, session = require('supertest-session');
+```
+As I mentioned before, [`Supertest`](https://www.npmjs.com/package/supertest) is our main testing framework. In order to properly send routes to your sever you will need to also require the server in the test file (in this case app.js).[`Chai`](http://chaijs.com/)gives us the ability to use 'expect' (see my sample code below) and finally [`Supertest`](https://www.npmjs.com/package/supertest) provides a handy Cookie-based session persistence tool called `supertest-session` to envolpe and use our app (ie. server). 
+
+It isn't particularly mandatory, but when starting out I would set-up a beforeEach where you assign a variable to the session. It cleans up the code a little and makes it easier to understand what your test is doing.  
+
+```
+beforeEach(function () {
+  testSession = session(app);
+})
+```
+
+Alright, now you are offcially ready to build some tests! 
+
+In the sample that I've attached to this repository I test to see that my app is able to load the dashboard (homepage) successfully:
+
+```
+describe('this test', function(){
+
+	it("should load the dashboard", function(done){
+		testSession.get('/')
+		.expect(200)
+		.end(function(err, res){
+			if(err){
+				return done(err);
+			}
+			expect(res.text).to.contain('Gal');
+			done();
+		})
+
+	})
+
+})
+```
 
 
 
