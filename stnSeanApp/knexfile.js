@@ -5,7 +5,14 @@ module.exports = {
   development: {
     client: 'postgres',
     connection: {
-      database: 'dev-testing'
+      database: 'dev'
+    }
+  },  
+
+  test: {
+    client: 'postgres',
+    connection: {
+      database: 'dev'
     }
   },
 
