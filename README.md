@@ -187,7 +187,7 @@ describe('this test', function(){
 })
 ```
 
-##Welcome to the Wonderful World of Test Driven Developement (TDD)
+##Welcome to the Wonderful World of Test Driven Development (TDD)
 
 Now that everything is in place, feel free to run your development enivorment sever using `nodemon` in one terminal window. While on another window simply type `gulp` into your command line and hit enter. 
 
@@ -198,8 +198,8 @@ You should now feel the weight of the world lift off of your shoulders.
 
 When you return to your code, you can make any and all necessary changes, save your code, and simply look at your terminal window and hope to see those magnificant beautiful green checkmarks assuring you that it's ok to walk away from the laptop. You're free!  
 
-[More on writing test in mocha](https://semaphoreci.com/community/tutorials/getting-started-with-node-js-and-mocha)  
-[More on writing test in jasmine](http://jasmine.github.io/2.0/introduction.html)
+[More on writing tests in mocha](https://semaphoreci.com/community/tutorials/getting-started-with-node-js-and-mocha)  
+[More on writing tests in jasmine](http://jasmine.github.io/2.0/introduction.html)
 
 
 
