@@ -139,13 +139,12 @@ process.env.PORT = 5000;
 process.env.NODE_ENV = 'test';
 ```
 
-Make sure to set the port to something other than what's been set for development in your app.js (server) file.
+In order to gurantee the development and testing enviorments won't compete for ports, make sure to set the port to something other than what's been set for development in your app.js (server) file.
 
-I cannot re-emphasize this enough  <br>
+I cannot re-emphasize this enough:  <br>
 
-<u>**Make sure to set the port to something other than what's been set up for development!!!**</u>
+**Make sure to set the port to something other than what's been set up for development!!!**
 
-This way you can gurantee the development and testing enviorments won't compete for ports.
 
 ******You will also need to make sure you have a 'test' enviorment set-up in your database file (ie. knexfile.js)******
 
