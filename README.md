@@ -146,6 +146,8 @@ I cannot re-emphasize this enough:
 
 This way you can gurantee the development and testing enviorments won't compete for ports.
 
+You will also need to make sure you have a 'test' enviorment set-up in your knexfile.js
+
 Next, you will need to bring in a few more requirements:
 
 ```
