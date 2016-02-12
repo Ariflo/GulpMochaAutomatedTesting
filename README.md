@@ -9,7 +9,7 @@ Do you suffer from PTDD, *Post-Traumatic Deployment Disorder*, and just can't se
 
 ## Automated Testing with Gulp-Mocha
 
-Never fear, automated TDD is here!
+Never fear, automated Test Driven Development (TDD) is here!
 
 This repository will outline the steps necessary to set-up an automated Gulp-Mocha testing suite for your SEAN (PostgreSQL, Express, Angular, Node) web app. 
 
