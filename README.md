@@ -1,10 +1,3 @@
-
-##How to get a Life in 3 Easy steps!
-
-Do you feel like every development project you undertake is another chunk of your life being sucked into the black hole that is your laptop? 
-
-Do you suffer from PTDD, *Post-Traumatic Deployment Disorder*, and just can't seem to walk away from a computer screen, thinking about that inevitable post-deployment crash to come. 
-
 ![calm](http://sd.keepcalm-o-matic.co.uk/i/keep-calm-and-tdd-1.png)
 
 ## Automated Testing with Gulp-Mocha
